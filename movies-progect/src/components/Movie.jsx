@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Movie(props) {
-  const { Title: title, Poster: poster, Type: category, Year: year } = props.film;
+function Movie({ title, poster, category, year }) {
+
   const style = {
     footer : {
       display: 'flex', 
@@ -25,4 +25,4 @@ function Movie(props) {
   )
 }
 
-export { Movie };
+export {Movie};
