@@ -1,6 +1,8 @@
-function Main() {
+import { Movies } from '../components/Movies'
+
+function Main({films}) {
   return <main className='container content'>
-    Hello from Movies App
+    <Movies films={films}/>
   </main>
 }
 

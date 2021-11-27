@@ -22,6 +22,12 @@ nav {
   padding: 0 1rem;
 }
 
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+}
+
 main {
   flex-grow: 1;
 }
