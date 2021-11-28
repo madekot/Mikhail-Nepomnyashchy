@@ -15,30 +15,34 @@ class App extends Component {
   };
 
   getFactoryRequest = (type, search) => {
-    if (type === 'all') {
-      return this.services.getAllVideo(search);
-    }
+    const { getAllVideo, getMovies, getSerials } = this.services;
 
     if (type === 'films') {
-      return this.services.getMovies(search);
+      return getMovies(search);
     }
 
     if (type === 'serials') {
-      return this.services.getSerials(search);
+      return getSerials(search);
     }
+
+    return getAllVideo(search);
   };
 
   onChangeSearch = (search) => {
+    const { getFactoryRequest, setState } = this;
     const { type } = this.state;
-    this.getFactoryRequest(type, search).then((films) => {
-      this.setState({ search, films });
+
+    getFactoryRequest(type, search).then((films) => {
+      setState({ search, films });
     });
   };
 
   onChangeType = (type) => {
+    const { getFactoryRequest, setState } = this;
     const { search } = this.state;
-    this.getFactoryRequest(type, search).then((films) => {
-      this.setState({ search, films, type});
+    
+    getFactoryRequest(type, search).then((films) => {
+      setState({ search, films, type });
     });
   };
 
