@@ -14,48 +14,33 @@ class App extends Component {
     type: null,
   };
 
-  onChangeSearch = (search) => { 
-    if (this.state.type === 'all') {
-      this.services.getAllVideo(search).then((films) => {
-        this.setState({ search, films });
-      });
-    }
-
-    if (this.state.type === 'films') {
-      this.services.getMovies(search).then((films) => {
-        this.setState({ search, films });
-      });
-    }
-
-    if (this.state.type === 'serials') {
-      this.services.getSerials(search).then((films) => {
-        this.setState({ search, films });
-      });
-    }
-  };
-
-  onChangeType = (type) => {
-    const { search } = this.state;
-
+  getFactoryRequest = (type, search) => {
     if (type === 'all') {
-      this.services.getAllVideo(search).then((films) => {
-        this.setState({ search, films });
-      });
+      return this.services.getAllVideo(search);
     }
 
     if (type === 'films') {
-      this.services.getMovies(search).then((films) => {
-        this.setState({ search, films });
-      });
+      return this.services.getMovies(search);
     }
 
     if (type === 'serials') {
-      this.services.getSerials(search).then((films) => {
-        this.setState({ search, films });
-      });
+      return this.services.getSerials(search);
     }
-    this.setState({type})
-  }
+  };
+
+  onChangeSearch = (search) => {
+    const { type } = this.state;
+    this.getFactoryRequest(type, search).then((films) => {
+      this.setState({ search, films });
+    });
+  };
+
+  onChangeType = (type) => {
+    // const { search } = this.state;
+    // this.getFactoryRequest(type, search).then((films) => {
+    //   this.setState({ search, films, type});
+    // });
+  };
 
   componentDidMount() {
     this.services
@@ -70,7 +55,12 @@ class App extends Component {
     return (
       <>
         <Header />
-        <Main search={search} films={films} onChangeSearch={onChangeSearch} onChangeType={onChangeType} />
+        <Main
+          search={search}
+          films={films}
+          onChangeSearch={onChangeSearch}
+          onChangeType={onChangeType}
+        />
         <Footer />
       </>
     );
