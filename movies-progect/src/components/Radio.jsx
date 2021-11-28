@@ -2,13 +2,17 @@ import { Component } from 'react';
 
 class Radio extends Component {
   state = {
-    checkedType: null,
+    checkedType: 'all',
   };
 
   style = {
     display: 'flex',
     justifyContent: 'space-between',
   };
+
+  componentDidMount() {
+    this.props.onChangeType(this.state.checkedType);
+  }
 
   render() {
     const { style } = this;
@@ -30,7 +34,7 @@ class Radio extends Component {
               name="group1"
               type="radio"
               data-name="all"
-              defaultChecked
+              checked={this.state.checkedType === 'all'}
             />
             <span>All</span>
           </label>
@@ -42,6 +46,7 @@ class Radio extends Component {
               name="group1"
               type="radio"
               data-name="films"
+              checked={this.state.checkedType === 'films'}
             />
             <span>Films</span>
           </label>
@@ -53,6 +58,7 @@ class Radio extends Component {
               name="group1"
               type="radio"
               data-name="serials"
+              checked={this.state.checkedType === 'serials'}
             />
             <span>Serials</span>
           </label>

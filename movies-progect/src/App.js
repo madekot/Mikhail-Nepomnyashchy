@@ -14,26 +14,46 @@ class App extends Component {
     type: null,
   };
 
-  typeToFunc = {
-    films: () => this.getContent(this.services.getMovies),
-    serials: () => this.getContent(this.services.getSerials),
-    all: () => this.getContent(this.services.getAllVideo),
-  }
-
-  getContent = (cb) => {
-    cb(this.state.search).then((films) => {
-      this.setState({ search: this.state.search, films });
-    });
-  }
-
   onChangeSearch = (search) => { 
-    this.services.getAllVideo(search).then((films) => {
-      this.setState({ search, films });
-    });
+    if (this.state.type === 'all') {
+      this.services.getAllVideo(search).then((films) => {
+        this.setState({ search, films });
+      });
+    }
+
+    if (this.state.type === 'films') {
+      this.services.getMovies(search).then((films) => {
+        this.setState({ search, films });
+      });
+    }
+
+    if (this.state.type === 'serials') {
+      this.services.getSerials(search).then((films) => {
+        this.setState({ search, films });
+      });
+    }
   };
 
   onChangeType = (type) => {
-    this.typeToFunc[type]() 
+    const { search } = this.state;
+
+    if (type === 'all') {
+      this.services.getAllVideo(search).then((films) => {
+        this.setState({ search, films });
+      });
+    }
+
+    if (type === 'films') {
+      this.services.getMovies(search).then((films) => {
+        this.setState({ search, films });
+      });
+    }
+
+    if (type === 'serials') {
+      this.services.getSerials(search).then((films) => {
+        this.setState({ search, films });
+      });
+    }
     this.setState({type})
   }
 
