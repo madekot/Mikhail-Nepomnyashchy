@@ -5,25 +5,22 @@ class Search extends Component {
     search: '',
   };
 
-  render() {
-    const { onChangeSearch, search } = this.props;
-    // const { search } = this.state;
+  handleKey = (evt) => {
+    if (evt.key === 'Enter') {
+      this.props.onChangeSearch(this.state.search)
+    }
+  }
 
+  render() {
     return (
       <div className="input-field">
         <input
           className="validate"
-          value={search}
+          value={this.state.search}
           type="search"
           placeholder="search"
-          onChange={(evt) => {
-              this.setState({search: evt.target.value})
-            }}
-          onKeyDown={({key}) => {
-            if (key === 'Enter') {
-              onChangeSearch(search)
-            }
-          }}  
+          onChange={(evt) => this.setState({search: evt.target.value})}
+          onKeyDown={(evt) => this.handleKey(evt)}  
         />
       </div>
     );

@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   onChangeSearch = (search) => {
-    this.request(this.state.search).then(films => {
+    this.request(search).then(films => {
       this.setState({search, films})
     })
   }
