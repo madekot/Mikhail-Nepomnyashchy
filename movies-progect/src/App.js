@@ -29,20 +29,20 @@ class App extends Component {
   };
 
   onChangeSearch = (search) => {
-    const { getFactoryRequest, setState } = this;
+    const { getFactoryRequest } = this;
     const { type } = this.state;
 
     getFactoryRequest(type, search).then((films) => {
-      setState({ search, films });
+      this.setState({ search, films });
     });
   };
 
   onChangeType = (type) => {
-    const { getFactoryRequest, setState } = this;
+    const { getFactoryRequest} = this;
     const { search } = this.state;
-    
+
     getFactoryRequest(type, search).then((films) => {
-      setState({ search, films, type });
+      this.setState({ search, films, type });
     });
   };
 
