@@ -36,10 +36,10 @@ class App extends Component {
   };
 
   onChangeType = (type) => {
-    // const { search } = this.state;
-    // this.getFactoryRequest(type, search).then((films) => {
-    //   this.setState({ search, films, type});
-    // });
+    const { search } = this.state;
+    this.getFactoryRequest(type, search).then((films) => {
+      this.setState({ search, films, type});
+    });
   };
 
   componentDidMount() {
