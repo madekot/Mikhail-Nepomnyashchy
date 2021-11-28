@@ -7,7 +7,8 @@ import { Main } from './layout/Main';
 class App extends Component {
   
   state = {
-    films: null
+    films: null,
+    search: 'matrix',
   }
 
   transformData = (data) => {
@@ -22,21 +23,30 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    fetch('http://www.omdbapi.com/?apikey=2dc59f56&s=matrix')
+  request = (search) => {
+    return fetch(`http://www.omdbapi.com/?apikey=2dc59f56&s=${search}`)
       .then(response => response.json())
-      .then(({Search}) => { 
-        return this.setState({films: this.transformData(Search)});
-      });
+      .then(({Search}) => this.transformData(Search));
+  }
+
+  onChangeSearch = (search) => {
+    this.request(this.state.search).then(films => {
+      this.setState({search, films})
+    })
+  }
+    
+  componentDidMount() {
+    this.request(this.state.search).then(films => this.setState({films}))
   };
   
   render () {
-    const { films } = this.state
+    const { onChangeSearch } = this;
+    const { films, search } = this.state;
 
     return (
       <>
         <Header />
-        <Main films={films}/>
+        <Main search={search} films={films} onChangeSearch={onChangeSearch}/>
         <Footer />
       </>
     );

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Movie } from '../components/Movie'
+import { Movie } from '../components/Movie';
+import { Preloader } from '../components/Preloader';
 
 function Movies({films}) {
   if (!films) {
-    return <h3>Loading...</h3>
+    return <Preloader />
   }
   
   const movies = films.map((film) => {
