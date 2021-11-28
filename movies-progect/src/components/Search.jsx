@@ -7,8 +7,12 @@ class Search extends Component {
 
   handleKey = (evt) => {
     if (evt.key === 'Enter') {
-      this.props.onChangeSearch(this.state.search)
+      this.props.onChangeSearch(this.state.search);
     }
+  };
+
+  componentDidMount() {
+    this.setState({ search: this.props.search });
   }
 
   render() {
@@ -19,9 +23,12 @@ class Search extends Component {
           value={this.state.search}
           type="search"
           placeholder="search"
-          onChange={(evt) => this.setState({search: evt.target.value})}
-          onKeyDown={(evt) => this.handleKey(evt)}  
+          onChange={(evt) => this.setState({ search: evt.target.value })}
+          onKeyDown={(evt) => this.handleKey(evt)}
         />
+        <button className="btn search-btn" onClick={() => this.props.onChangeSearch(this.state.search)}>
+          Search
+        </button>
       </div>
     );
   }
