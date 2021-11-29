@@ -1,5 +1,7 @@
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 class Services {
-  beginningUrl = 'https://www.omdbapi.com/?apikey=2dc59f56&s=';
+  beginningUrl = `https://www.omdbapi.com/?apikey=${API_KEY}&s=`;
 
   transformData = (data = []) => {
     return data.map((item) => {
