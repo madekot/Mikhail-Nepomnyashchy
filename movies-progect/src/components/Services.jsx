@@ -1,7 +1,7 @@
 class Services {
   beginningUrl = 'https://www.omdbapi.com/?apikey=2dc59f56&s=';
 
-  transformData = (data) => {
+  transformData = (data = []) => {
     return data.map((item) => {
       return {
         title: item.Title,

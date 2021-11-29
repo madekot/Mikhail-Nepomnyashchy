@@ -9,9 +9,10 @@ class App extends Component {
   services = new Services();
 
   state = {
-    films: null,
+    films: [],
     search: 'matrix',
-    type: null,
+    type: '',
+    loading: true,
   };
 
   getFactoryRequest = (type, search) => {
@@ -32,8 +33,10 @@ class App extends Component {
     const { getFactoryRequest } = this;
     const { type } = this.state;
 
+    this.setState({loading: true})
+
     getFactoryRequest(type, search).then((films) => {
-      this.setState({ search, films });
+      this.setState({ search, films, loading: false });
     });
   };
 
@@ -41,8 +44,10 @@ class App extends Component {
     const { getFactoryRequest} = this;
     const { search } = this.state;
 
+    this.setState({loading: true})
+
     getFactoryRequest(type, search).then((films) => {
-      this.setState({ search, films, type });
+      this.setState({ search, films, loading: false, type });
     });
   };
 
@@ -54,7 +59,7 @@ class App extends Component {
 
   render() {
     const { onChangeSearch, onChangeType } = this;
-    const { films, search } = this.state;
+    const { films, search, loading } = this.state;
 
     return (
       <>
@@ -62,6 +67,7 @@ class App extends Component {
         <Main
           search={search}
           films={films}
+          loading={loading}
           onChangeSearch={onChangeSearch}
           onChangeType={onChangeType}
         />
