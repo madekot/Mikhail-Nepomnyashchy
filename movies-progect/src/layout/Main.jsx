@@ -11,7 +11,7 @@ function Main(props) {
     <main className="container content">
       <Search search={search} onChangeSearch={onChangeSearch} />
       <Radio onChangeType={onChangeType} />
-      {films.length ? filmsConten : <h4>Empty</h4>}
+      {films.length ? filmsConten : <h4>Nothing found</h4>}
     </main>
   );
 }
