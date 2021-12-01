@@ -4,11 +4,11 @@ const labelsData = [
     name: 'all',
   },
   {
-    label: 'Films',
+    label: 'Films all',
     name: 'films',
   },
   {
-    label: 'Serials',
+    label: 'Serials all',
     name: 'serials',
   },
 ];
