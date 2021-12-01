@@ -10,4 +10,4 @@ function Movies({films}) {
   return <div className="movies">{movies}</div>;
 }
 
-export {Movies};
+export default Movies;

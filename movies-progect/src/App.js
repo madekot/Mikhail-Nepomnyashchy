@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import { Header } from './layout/Header';
-import { Footer } from './layout/Footer';
-import { Main } from './layout/Main';
-import { Services } from './components/Services';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Main from './layout/Main';
+import Services from './components/Services';
 
 class App extends Component {
   services = new Services();
@@ -33,7 +33,7 @@ class App extends Component {
     const { getFactoryRequest } = this;
     const { type } = this.state;
 
-    this.setState({loading: true})
+    this.setState({ loading: true });
 
     getFactoryRequest(type, search).then((films) => {
       this.setState({ search, films, loading: false });
@@ -41,10 +41,10 @@ class App extends Component {
   };
 
   onChangeType = (type) => {
-    const { getFactoryRequest} = this;
+    const { getFactoryRequest } = this;
     const { search } = this.state;
 
-    this.setState({loading: true})
+    this.setState({ loading: true });
 
     getFactoryRequest(type, search).then((films) => {
       this.setState({ search, films, loading: false, type });

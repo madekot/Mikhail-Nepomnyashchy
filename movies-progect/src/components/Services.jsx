@@ -9,27 +9,27 @@ class Services {
         category: item.Type,
         year: item.Year,
         id: item.imdbID,
-      }
-    })
-  }
+      };
+    });
+  };
 
   getMovies = (search) => {
     return fetch(`${this.beginningUrl}${search}&type=movie`)
-      .then(response => response.json())
-      .then(({Search}) => this.transformData(Search));
-  }
+      .then((response) => response.json())
+      .then(({ Search }) => this.transformData(Search));
+  };
 
   getSerials = (search) => {
     return fetch(`${this.beginningUrl}${search}&type=series`)
-      .then(response => response.json())
-      .then(({Search}) => this.transformData(Search));
-  }
+      .then((response) => response.json())
+      .then(({ Search }) => this.transformData(Search));
+  };
 
   getAllVideo = (search) => {
     return fetch(`${this.beginningUrl}${search}`)
-      .then(response => response.json())
-      .then(({Search}) => this.transformData(Search));
-  }
+      .then((response) => response.json())
+      .then(({ Search }) => this.transformData(Search));
+  };
 }
 
-export {Services}
+export default Services;
