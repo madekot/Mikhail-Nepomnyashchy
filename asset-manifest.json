@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Mikhail-Nepomnyashchy/static/css/main.e57dcdf7.chunk.css",
-    "main.js": "/Mikhail-Nepomnyashchy/static/js/main.a1651d09.chunk.js",
-    "main.js.map": "/Mikhail-Nepomnyashchy/static/js/main.a1651d09.chunk.js.map",
-    "runtime-main.js": "/Mikhail-Nepomnyashchy/static/js/runtime-main.b6cbd8a3.js",
-    "runtime-main.js.map": "/Mikhail-Nepomnyashchy/static/js/runtime-main.b6cbd8a3.js.map",
-    "static/js/2.46b78ca4.chunk.js": "/Mikhail-Nepomnyashchy/static/js/2.46b78ca4.chunk.js",
-    "static/js/2.46b78ca4.chunk.js.map": "/Mikhail-Nepomnyashchy/static/js/2.46b78ca4.chunk.js.map",
-    "index.html": "/Mikhail-Nepomnyashchy/index.html",
-    "static/css/main.e57dcdf7.chunk.css.map": "/Mikhail-Nepomnyashchy/static/css/main.e57dcdf7.chunk.css.map",
-    "static/js/2.46b78ca4.chunk.js.LICENSE.txt": "/Mikhail-Nepomnyashchy/static/js/2.46b78ca4.chunk.js.LICENSE.txt"
+    "main.css": "/movies-progect/static/css/main.e57dcdf7.chunk.css",
+    "main.js": "/movies-progect/static/js/main.a1651d09.chunk.js",
+    "main.js.map": "/movies-progect/static/js/main.a1651d09.chunk.js.map",
+    "runtime-main.js": "/movies-progect/static/js/runtime-main.fbe03935.js",
+    "runtime-main.js.map": "/movies-progect/static/js/runtime-main.fbe03935.js.map",
+    "static/js/2.46b78ca4.chunk.js": "/movies-progect/static/js/2.46b78ca4.chunk.js",
+    "static/js/2.46b78ca4.chunk.js.map": "/movies-progect/static/js/2.46b78ca4.chunk.js.map",
+    "index.html": "/movies-progect/index.html",
+    "static/css/main.e57dcdf7.chunk.css.map": "/movies-progect/static/css/main.e57dcdf7.chunk.css.map",
+    "static/js/2.46b78ca4.chunk.js.LICENSE.txt": "/movies-progect/static/js/2.46b78ca4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b6cbd8a3.js",
+    "static/js/runtime-main.fbe03935.js",
     "static/js/2.46b78ca4.chunk.js",
     "static/css/main.e57dcdf7.chunk.css",
     "static/js/main.a1651d09.chunk.js"
